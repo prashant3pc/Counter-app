@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .container h1 {
+            margin: 20px;
+        }
+
+        .btn1 {
+            margin-top: 100px;
+            font-size: 50px;
+            width: 50px;
+            height: 60px;
+            margin-bottom: 50px;
+            background-color: lightblue;
+        }
+
+        .btn2 {
+            margin-top: 50px;
+            font-size: 50px;
+            width: 50px;
+            height: 60px;
+            background-color: lightblue;
+        }
+
+        .text {
+            /* border: 2px solid red; */
+            margin-bottom: 20px;
+            font-size: large;
+        }
+
+        .text input {
+            width: 70px;
+            height: 30px;
+        }
+        .btn3{
+            font-size: large;
+            width: 90px;
+            height: 50px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <p id="counter">0</p>
+        <button onclick="decreaseButton()" class="btn1 ">-</button>
+        <button onclick="increaseButton()" class="btn2">+</button>
+        <div class="text">
+            <p>Increment/Decrement by <input type="number" id="stepValue" value="1"></p>
+        </div>
+        <div>
+            <button onclick="resetButton()" class="btn3">Reset</button>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        document.getElementById("counter").style.fontSize = "80px";
+
+        function updateCounter(){
+            document.getElementById("counter").innerText = count;
+        }
+
+        function decreaseButton(){
+            let step = parseInt(document.getElementById("stepValue").value) || 1;
+            count-=step;
+            updateCounter()
+        }
+
+        function increaseButton(){
+            let step = parseInt(document.getElementById("stepValue").value) || 1;
+            count+=step;
+            updateCounter()
+        }
+
+        function resetButton(){
+            count = 0;
+            document.getElementById("stepValue").value = 1;
+            updateCounter()
+        }
+
+    </script>
+</body>
+
+</html>
